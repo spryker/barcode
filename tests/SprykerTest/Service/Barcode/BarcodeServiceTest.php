@@ -48,9 +48,6 @@ class BarcodeServiceTest extends Unit
      */
     protected $activeBarcodeGeneratorPlugin;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -65,9 +62,6 @@ class BarcodeServiceTest extends Unit
         $this->tester->setDependency(BarcodeDependencyProvider::PLUGINS_BARCODE_GENERATOR, $this->registeredBarcodeGeneratorPlugins);
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateBarcode(): void
     {
         $barcodeResponseTransfer = $this->tester->generateBarcodeUsingBarcodeService(
@@ -78,9 +72,6 @@ class BarcodeServiceTest extends Unit
         $this->assertSame(BarcodeGeneratorPluginMockRegistered1::GENERATED_ENCODING, $barcodeResponseTransfer->getEncoding());
     }
 
-    /**
-     * @return void
-     */
     public function testGeneratedBarcodeResponseHasCorrectType(): void
     {
         $barcodeResponseTransfer = $this
@@ -92,9 +83,6 @@ class BarcodeServiceTest extends Unit
         $this->assertInstanceOf(BarcodeResponseTransfer::class, $barcodeResponseTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGeneratedBarcodeResponseIsNotEmpty(): void
     {
         $barcodeResponseTransfer = $this->tester->generateBarcodeUsingBarcodeService(
@@ -105,9 +93,6 @@ class BarcodeServiceTest extends Unit
         $this->assertNotEmpty($barcodeResponseTransfer->getEncoding());
     }
 
-    /**
-     * @return void
-     */
     public function testBarcodeGeneratorUsesPluginFullQualifiedClassName(): void
     {
         $barcodeGeneratorPluginClass = get_class($this->activeBarcodeGeneratorPlugin);
@@ -115,9 +100,6 @@ class BarcodeServiceTest extends Unit
         $this->assertTrue(class_exists($barcodeGeneratorPluginClass));
     }
 
-    /**
-     * @return void
-     */
     public function testBarcodeGeneratorUsesFirstRegisteredPlugin(): void
     {
         $firstRegisteredPlugin = reset($this->registeredBarcodeGeneratorPlugins);
@@ -130,9 +112,6 @@ class BarcodeServiceTest extends Unit
         $this->assertSame($firstRegisteredPlugin::GENERATED_ENCODING, $barcodeResponseTransfer->getEncoding());
     }
 
-    /**
-     * @return void
-     */
     public function testBarcodeGeneratorThrowsExceptionForUnregisteredPlugin(): void
     {
         $unregisteredPlugin = new BarcodeGeneratorPluginMockUnregistered();

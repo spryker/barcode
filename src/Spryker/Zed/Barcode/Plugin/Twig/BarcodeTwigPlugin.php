@@ -41,9 +41,6 @@ class BarcodeTwigPlugin extends AbstractPlugin implements TwigPluginInterface
         return $twig;
     }
 
-    /**
-     * @return \Twig\TwigFunction
-     */
     protected function getBarcodeFunction(): TwigFunction
     {
         return new TwigFunction(static::FUNCTION_NAME_BARCODE, function (string $text, ?string $generatorPlugin = null) {

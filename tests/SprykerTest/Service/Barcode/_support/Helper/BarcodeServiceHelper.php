@@ -24,9 +24,6 @@ class BarcodeServiceHelper extends Module
      */
     protected const GENERATED_CODE = 'generated string';
 
-    /**
-     * @return \Spryker\Service\Barcode\BarcodeServiceInterface
-     */
     public function getBarcodeService(): BarcodeServiceInterface
     {
         return $this->getLocator()
@@ -34,11 +31,6 @@ class BarcodeServiceHelper extends Module
             ->service();
     }
 
-    /**
-     * @param string|null $generatorPlugin
-     *
-     * @return \Generated\Shared\Transfer\BarcodeResponseTransfer
-     */
     public function generateBarcodeUsingBarcodeService(?string $generatorPlugin = null): BarcodeResponseTransfer
     {
         return $this

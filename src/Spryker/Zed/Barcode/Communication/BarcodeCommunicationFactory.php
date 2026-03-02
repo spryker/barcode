@@ -16,9 +16,6 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
  */
 class BarcodeCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Service\Barcode\BarcodeServiceInterface
-     */
     public function getBarcodeService(): BarcodeServiceInterface
     {
         return $this->getProvidedDependency(BarcodeDependencyProvider::SERVICE_BARCODE);

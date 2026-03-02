@@ -17,11 +17,6 @@ class BarcodeDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_BARCODE_GENERATOR = 'PLUGINS_BARCODE_GENERATOR';
 
-    /**
-     * @param \Spryker\Service\Kernel\Container $container
-     *
-     * @return \Spryker\Service\Kernel\Container
-     */
     public function provideServiceDependencies(Container $container): Container
     {
         $container = $this->addBarcodeGeneratorPlugins($container);
@@ -29,11 +24,6 @@ class BarcodeDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Service\Kernel\Container $container
-     *
-     * @return \Spryker\Service\Kernel\Container
-     */
     protected function addBarcodeGeneratorPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_BARCODE_GENERATOR, function (Container $container) {

@@ -16,20 +16,11 @@ class BarcodeGenerator implements BarcodeGeneratorInterface
      */
     protected $pluginResolver;
 
-    /**
-     * @param \Spryker\Service\Barcode\BarcodeGenerator\BarcodeGeneratorPluginResolverInterface $pluginResolver
-     */
     public function __construct(BarcodeGeneratorPluginResolverInterface $pluginResolver)
     {
         $this->pluginResolver = $pluginResolver;
     }
 
-    /**
-     * @param string $text
-     * @param string|null $generatorPlugin
-     *
-     * @return \Generated\Shared\Transfer\BarcodeResponseTransfer
-     */
     public function generateBarcode(string $text, ?string $generatorPlugin): BarcodeResponseTransfer
     {
         return $this->pluginResolver

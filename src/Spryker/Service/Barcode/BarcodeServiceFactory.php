@@ -15,9 +15,6 @@ use Spryker\Service\Kernel\AbstractServiceFactory;
 
 class BarcodeServiceFactory extends AbstractServiceFactory
 {
-    /**
-     * @return \Spryker\Service\Barcode\BarcodeGenerator\BarcodeGeneratorInterface
-     */
     public function createBarcodeGenerator(): BarcodeGeneratorInterface
     {
         return new BarcodeGenerator(
@@ -25,9 +22,6 @@ class BarcodeServiceFactory extends AbstractServiceFactory
         );
     }
 
-    /**
-     * @return \Spryker\Service\Barcode\BarcodeGenerator\BarcodeGeneratorPluginResolverInterface
-     */
     public function createBarcodePluginResolver(): BarcodeGeneratorPluginResolverInterface
     {
         return new BarcodeGeneratorPluginResolver($this->getBarcodeGeneratorPlugins());

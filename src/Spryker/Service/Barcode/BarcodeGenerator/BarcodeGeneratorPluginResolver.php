@@ -66,11 +66,6 @@ class BarcodeGeneratorPluginResolver implements BarcodeGeneratorPluginResolverIn
         }
     }
 
-    /**
-     * @param array $barcodeGeneratorPlugins
-     *
-     * @return void
-     */
     protected function setBarcodeGeneratorPluginCache(array $barcodeGeneratorPlugins): void
     {
         foreach ($barcodeGeneratorPlugins as $barcodeGeneratorPlugin) {
